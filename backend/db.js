@@ -1,5 +1,6 @@
 const mongoose  = require("mongoose");
 
+mongoose.connect("url")
 
 // User Schema
 const userSchema = new mongoose.Schema({
@@ -12,9 +13,23 @@ const userSchema = new mongoose.Schema({
         minLength: 3,
         maxLength: 30
     },
-    password: String,
-    firstName: String,
-    lastName: String
+    password: {
+        type: String,
+        required: true,
+        minLength: 6
+    },
+    firstName: {
+        type: String,
+        required: true,
+        trim: true,
+        maxLength: 50
+    },
+    lastName: {
+        type: String,
+        required: true,
+        trim: true,
+        maxLength: 50
+    }
 });
 
 
